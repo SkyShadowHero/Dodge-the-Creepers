@@ -11,7 +11,7 @@ more pictures are in the releases
 
 It's just a fun game so have fun!!!
 
-Of course it's my first game...
+#Of course it's my first game...
 ===============================================================================================================================
 
 Start GUI
