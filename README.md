@@ -1,5 +1,5 @@
 # Dodge-the-creepers!!!
-A mini game,just move to dodge the creepers
+A mini game inspired by Minecraft,just move to dodge the creepers
 
 
 You can use[W][A][S][D],[↑][←][↓][→] or touch the screen buttons to move
@@ -16,7 +16,7 @@ And it can work both on Windows and Android
 
 There might be some characters you can't understand 
 
-but it's not a big deal 
+but it's not a big deal！
 
 This game is so easy to understand even if you don't know anything! 
 
