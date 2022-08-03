@@ -18,7 +18,7 @@ Start GUI
 
 <a href="https://sm.ms/image/oAxsOuicmgS6nKJ" target="_blank"><img src="https://s2.loli.net/2022/08/03/oAxsOuicmgS6nKJ.png" ></a>
 
-Turning left
+Turning right
 
 <a href="https://sm.ms/image/I478JNyTnAaFUR5" target="_blank"><img src="https://s2.loli.net/2022/08/03/I478JNyTnAaFUR5.png" ></a>
 
