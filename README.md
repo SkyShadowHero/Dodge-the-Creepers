@@ -1,6 +1,7 @@
 # Dodge-the-creepers!!!
 A mini game,just move to dodge the creepers
 
+
 You can use[W][A][S][D],[↑][←][↓][→] or touch the screen buttons to move
 
 Attention:You are supposed to download both exe and pck files
@@ -11,7 +12,15 @@ more pictures are in the releases
 
 It's just a fun game so have fun!!!
 
-#Of course it's my first game...
+And it can work both on Windows and Android 
+
+There might be some characters you can't understand 
+
+but it's not a big deal 
+
+This game is so easy to understand even if you don't know anything! 
+
+Of course it's my first game...
 ===============================================================================================================================
 
 Start GUI
