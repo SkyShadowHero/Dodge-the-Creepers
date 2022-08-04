@@ -14,20 +14,16 @@ It's just a fun game so have fun!!!
 
 And it can work both on Windows and Android 
 
-There might be some characters you can't understand 
-
-but it's not a big deal！
-
 This game is so easy to understand even if you don't know anything! 
 
 Of course it's my first game...
-===============================================================================================================================
+====================================================================================================================
 
 Start GUI
 
-<a href="https://sm.ms/image/oAxsOuicmgS6nKJ" target="_blank"><img src="https://s2.loli.net/2022/08/03/oAxsOuicmgS6nKJ.png" ></a>
+<a href="https://sm.ms/image/OLmuTzZdCHfB6gn" target="_blank"><img src="https://s2.loli.net/2022/08/04/OLmuTzZdCHfB6gn.png" ></a>
 
-Turning right
+Turn right
 
 <a href="https://sm.ms/image/I478JNyTnAaFUR5" target="_blank"><img src="https://s2.loli.net/2022/08/03/I478JNyTnAaFUR5.png" ></a>
 
