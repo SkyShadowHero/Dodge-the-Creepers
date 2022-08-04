@@ -29,4 +29,4 @@ Turn right
 
 Failing
 
-<a href="https://sm.ms/image/ribTCeop4U5d8fx" target="_blank"><img src="https://s2.loli.net/2022/08/03/ribTCeop4U5d8fx.png" ></a>
+<a href="https://sm.ms/image/UmlN8FugEnGdwCZ" target="_blank"><img src="https://s2.loli.net/2022/08/04/UmlN8FugEnGdwCZ.png" ></a>
