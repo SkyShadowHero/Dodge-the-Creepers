@@ -1,0 +1,145 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Main2.gd" type="Script" id=1]
+[ext_resource path="res://Mob2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player2.gd" type="Script" id=3]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://dodge_assets/新建文件夹/creeperDeath.wav" type="AudioStream" id=5]
+[ext_resource path="res://dodge_assets/新建文件夹/an_ordinary_day.ogg" type="AudioStream" id=6]
+[ext_resource path="res://dodge_assets/art/player_right.png" type="Texture" id=7]
+[ext_resource path="res://dodge_assets/art/Back.png" type="Texture" id=8]
+[ext_resource path="res://dodge_assets/art/water_breathing.png" type="Texture" id=9]
+[ext_resource path="res://dodge_assets/art/player_up.png" type="Texture" id=10]
+[ext_resource path="res://dodge_assets/art/player_left.png" type="Texture" id=11]
+[ext_resource path="res://dodge_assets/art/player.png" type="Texture" id=12]
+[ext_resource path="res://dodge_assets/art/Back_pressed.png" type="Texture" id=13]
+[ext_resource path="res://fonts/Minecraft AE(支持中文).ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://cloud.gd" type="Script" id=15]
+[ext_resource path="res://dodge_assets/art/Invicon_Water.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+lifetime_randomness = 0.8
+flag_disable_z = true
+gravity = Vector3( 0, -10, 0 )
+initial_velocity = 30.0
+initial_velocity_random = 1.0
+angular_velocity = 30.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+
+[sub_resource type="Curve2D" id=11]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 1 )
+}
+
+[sub_resource type="DynamicFont" id=13]
+size = 64
+font_data = ExtResource( 14 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+mob_scene = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.121569, 0.584314, 0.956863, 1 )
+
+[node name="Player" type="Area2D" parent="."]
+z_index = 10
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+frames = SubResource( 1 )
+animation = "right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 8 )
+
+[node name="Trail" type="Particles2D" parent="Player"]
+position = Vector2( 0, -30 )
+amount = 30
+lifetime = 20.0
+local_coords = false
+process_material = SubResource( 12 )
+texture = ExtResource( 9 )
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 240, 450 )
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource( 11 )
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+rotation = 0.00208333
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="background" type="Area2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="background"]
+position = Vector2( 257, 258 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 16 )
+
+[node name="back" type="TextureButton" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 101.0
+margin_bottom = 76.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+
+[node name="Mode" type="Label" parent="."]
+margin_left = 61.0
+margin_top = 207.0
+margin_right = 413.0
+margin_bottom = 271.0
+custom_fonts/font = SubResource( 13 )
+text = "Sea Mode"
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_Player_body_entered"]
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

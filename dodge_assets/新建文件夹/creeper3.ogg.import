@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/creeper3.ogg-280c88a2ea8ab80b3c9efc28773f1b6f.oggstr"
+
+[deps]
+
+source_file="res://dodge_assets/新建文件夹/creeper3.ogg"
+dest_files=[ "res://.import/creeper3.ogg-280c88a2ea8ab80b3c9efc28773f1b6f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

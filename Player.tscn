@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://dodge_assets/art/player_right.png" type="Texture" id=3]
+[ext_resource path="res://dodge_assets/art/player_up.png" type="Texture" id=4]
+[ext_resource path="res://dodge_assets/art/player_left.png" type="Texture" id=5]
+[ext_resource path="res://dodge_assets/art/player.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 0.501961, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0.00501098, 0.5 ), 0.0, 0.0, 0, 0, Vector2( 0.994989, 0.324 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+gravity = Vector3( 0, -10, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+scale_curve = SubResource( 10 )
+color_ramp = SubResource( 9 )
+
+[node name="Player" type="Area2D"]
+z_index = 10
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 8 )
+
+[node name="Trail" type="Particles2D" parent="."]
+z_index = -1
+amount = 10
+speed_scale = 2.0
+local_coords = false
+process_material = SubResource( 7 )
+texture = ExtResource( 6 )
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]

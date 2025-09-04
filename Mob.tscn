@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Mob.gd" type="Script" id=1]
+[ext_resource path="res://dodge_assets/art/creeper.png" type="Texture" id=2]
+[ext_resource path="res://dodge_assets/art/creeper2.png" type="Texture" id=3]
+[ext_resource path="res://dodge_assets/art/d4.png" type="Texture" id=4]
+[ext_resource path="res://dodge_assets/art/d2.png" type="Texture" id=5]
+[ext_resource path="res://dodge_assets/art/d3.png" type="Texture" id=6]
+[ext_resource path="res://dodge_assets/art/d1.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 29.5, 22 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 19.5, 15.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 34.5, 12.5 )
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -9.375, -11.3125 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 1 )
+animation = "walk"
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -9.5, -40 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -9.5, -1.5 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( -7.5, 26.5 )
+shape = SubResource( 4 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

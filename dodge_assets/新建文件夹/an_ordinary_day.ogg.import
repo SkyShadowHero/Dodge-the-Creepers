@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/an_ordinary_day.ogg-493b74622fdca14a1208ec34560740d6.oggstr"
+
+[deps]
+
+source_file="res://dodge_assets/新建文件夹/an_ordinary_day.ogg"
+dest_files=[ "res://.import/an_ordinary_day.ogg-493b74622fdca14a1208ec34560740d6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
